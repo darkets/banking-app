@@ -30,3 +30,5 @@ A simple banking system with transactions and investments
 
 ## Screenshots
 ![Picture 1](https://i.imgur.com/eOzR3Xx.png)
+![Picture 2](https://i.imgur.com/U7AvxH2.png)
+![Picture 3](https://i.imgur.com/5kAg47T.png)
