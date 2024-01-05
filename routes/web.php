@@ -25,16 +25,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/accounts', [AccountController::class, 'view'])->middleware(['auth'])->name('accounts');
-Route::get('/accounts/create', [AccountController::class, 'create'])->middleware(['auth'])->name('accounts.create');
-Route::post('/accounts/create', [AccountController::class, 'store'])->middleware(['auth'])->name('accounts.store');
-Route::delete('/accounts/delete', [AccountController::class, 'delete'])->middleware(['auth'])->name('accounts.delete');
-Route::get('/transactions', [TransactionController::class, 'view'])->middleware(['auth'])->name('transactions');
-Route::get('/transactions/create', [TransactionController::class, 'create'])->middleware(['auth'])->name('transactions.create');
-Route::post('/transactions/create', [TransactionController::class, 'store'])->middleware(['auth'])->name('transactions.store');
-Route::get('/accounts/create-investment', [AccountController::class, 'createInvestmentAccount'])->name('accounts.createInvestment');
-Route::get('/investments', [InvestmentController::class, 'view'])->middleware(['auth'])->name('investments');
-Route::get('/investments/create', [InvestmentController::class, 'create'])->middleware(['auth'])->name('investments.create');
-Route::post('/investments', [InvestmentController::class, 'store'])->middleware(['auth'])->name('investments.store');
-Route::put('/investments/sell', [InvestmentController::class, 'sell'])->middleware(['auth'])->name('investments.sell');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/accounts', [AccountController::class, 'view'])->name('accounts');
+    Route::get('/accounts/create', [AccountController::class, 'create'])->name('accounts.create');
+    Route::post('/accounts/create', [AccountController::class, 'store'])->name('accounts.store');
+    Route::get('/accounts/create-investment', [AccountController::class, 'createInvestmentAccount'])->name('accounts.createInvestment');
+    Route::delete('/accounts/delete', [AccountController::class, 'delete'])->name('accounts.delete');
+    Route::get('/transactions', [TransactionController::class, 'view'])->name('transactions');
+    Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
+    Route::post('/transactions/create', [TransactionController::class, 'store'])->name('transactions.store');
+    Route::get('/investments', [InvestmentController::class, 'view'])->name('investments');
+    Route::get('/investments/create', [InvestmentController::class, 'create'])->name('investments.create');
+    Route::post('/investments', [InvestmentController::class, 'store'])->name('investments.store');
+    Route::put('/investments/sell', [InvestmentController::class, 'sell'])->name('investments.sell');
+});
+
 require __DIR__ . '/auth.php';
