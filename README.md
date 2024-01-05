@@ -27,6 +27,7 @@ A simple banking system with transactions and investments
 - `php artisan crypto:fetch`
 - `npm run dev` or `watch`
 - `php artisan serve`
+- `php artisan schedule:work`
 
 ## Screenshots
 ![Picture 1](https://i.imgur.com/eOzR3Xx.png)
