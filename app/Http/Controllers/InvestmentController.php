@@ -114,6 +114,6 @@ class InvestmentController extends Controller
         $investment->sale_value = round($amount * 100);
         $investment->save();
 
-        return redirect()->route('investments')->with('success', 'Sale of investment completed successfully');
+        return redirect()->route('investments')->with('success', 'You just sold your investment!');
     }
 }

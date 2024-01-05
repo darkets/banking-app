@@ -67,10 +67,11 @@
                                         {{ round($investment->percentageChange, 2) }}%
                                     </p>
                                 </div>
-                                <form action="{{ route('investments.sell', ['investmentId' => $investment->id]) }}" method="POST">
+                                <form action="{{ route('investments.sell', ['investmentId' => $investment->id]) }}"
+                                      method="POST">
                                     @csrf
                                     @method('PUT')
-                                    <button type="submit" class="text-indigo-600 hover:text-indigo-900">Sell</button>
+                                    <button type="submit" class="text-white bg-red-500 rounded-md p-2">Sell</button>
                                 </form>
                             </div>
                         </div>

@@ -63,12 +63,12 @@ class AccountController extends Controller
         $account = Account::where('identifier', $request->identifier)->first();
 
         if (!$account) {
-            return back()->withErrors(['msg' => 'Account not found.']);
+            return back()->withErrors(['message' => 'Account not found.']);
         }
 
 
         if ($account->balance > 0) {
-            return back()->withErrors(['msg' => 'You cannot delete an account which has funds in it.']);
+            return back()->withErrors(['message' => 'You cannot delete an account which has funds in it.']);
         }
 
         if ($account['type'] === 'investment') {
